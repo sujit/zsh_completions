@@ -41,8 +41,7 @@ Force a rebuild (if required)
 ----------------------------------------------
 
     ```
-    $rm -f ~/.zcompdump
-    compinit
+    $rm -f ~/.zcompdump; compinit
     ```
 
 Enable case-insensitive path/tab completion
