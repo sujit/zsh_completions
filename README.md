@@ -40,7 +40,7 @@ Enabling Zsh auto-completions system
 Force a rebuild (if required)
 ----------------------------------------------
 
-    ```bash
+    ```
     $rm -f ~/.zcompdump
     compinit
     ```
@@ -48,7 +48,7 @@ Force a rebuild (if required)
 Enable case-insensitive path/tab completion
 ----------------------------------------------
 
-    ```bash
+    ```code
     zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
     ```
 
