@@ -55,3 +55,4 @@ References
 ------------------------
 * [zsh completions](https://scriptingosx.com/2019/07/moving-to-zsh-part-5-completions/)
 * [how to write zsh completion scripts](https://mads-hartmann.com/2017/08/06/writing-zsh-completion-scripts.html)
+* [pentest tools zsh scripts](https://github.com/rsherstnev/zshcompletions)
