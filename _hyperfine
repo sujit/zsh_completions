@@ -33,12 +33,26 @@ The --prepare option can be specified once for all commands or multiple times, o
 
   Example:  hyperfine -P threads 1 8 '\''make -j {threads}'\''
 
-This performs benchmarks for '\''make -j 1'\'', '\''make -j 2'\'', …, '\''make -j 8'\''.]' \
+This performs benchmarks for '\''make -j 1'\'', '\''make -j 2'\'', …, '\''make -j 8'\''.
+
+To have the value increase following different patterns, use shell arithmetics.
+
+  Example: hyperfine -P size 0 3 '\''sleep $((2**{size}))'\''
+
+This performs benchmarks with power of 2 increases: '\''sleep 1'\'', '\''sleep 2'\'', '\''sleep 4'\'', …
+The exact syntax may vary depending on your shell and OS.]' \
 '--parameter-scan=[Perform benchmark runs for each value in the range MIN..MAX. Replaces the string '\''{VAR}'\'' in each command by the current parameter value.
 
   Example:  hyperfine -P threads 1 8 '\''make -j {threads}'\''
 
-This performs benchmarks for '\''make -j 1'\'', '\''make -j 2'\'', …, '\''make -j 8'\''.]' \
+This performs benchmarks for '\''make -j 1'\'', '\''make -j 2'\'', …, '\''make -j 8'\''.
+
+To have the value increase following different patterns, use shell arithmetics.
+
+  Example: hyperfine -P size 0 3 '\''sleep $((2**{size}))'\''
+
+This performs benchmarks with power of 2 increases: '\''sleep 1'\'', '\''sleep 2'\'', '\''sleep 4'\'', …
+The exact syntax may vary depending on your shell and OS.]' \
 '-D+[This argument requires --parameter-scan to be specified as well. Traverse the range MIN..MAX in steps of DELTA.
 
   Example:  hyperfine -P delay 0.3 0.7 -D 0.2 '\''sleep {delay}'\''

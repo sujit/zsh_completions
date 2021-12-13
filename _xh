@@ -16,16 +16,22 @@ _xh() {
     local context curcontext="$curcontext" state line
     _arguments "${_arguments_options[@]}" \
 '--pretty=[Controls output processing]: :(all colors format none)' \
-'-s+[Output coloring style]: :(auto solarized)' \
-'--style=[Output coloring style]: :(auto solarized)' \
+'-s+[Output coloring style]: :(auto solarized monokai)' \
+'--style=[Output coloring style]: :(auto solarized monokai)' \
+'--response-charset=[Override the response encoding for terminal display purposes]' \
+'--response-mime=[Override the response mime type for coloring and formatting for the terminal]' \
 '-p+[String specifying what the output should contain]' \
 '--print=[String specifying what the output should contain]' \
+'-P+[The same as --print but applies only to intermediary requests/responses]' \
+'--history-print=[The same as --print but applies only to intermediary requests/responses]' \
 '-o+[Save output to FILE instead of stdout]' \
 '--output=[Save output to FILE instead of stdout]' \
-'-A+[Specify the auth mechanism]: :(basic bearer)' \
-'--auth-type=[Specify the auth mechanism]: :(basic bearer)' \
-'-a+[Authenticate as USER with PASS. PASS will be prompted if missing]' \
-'--auth=[Authenticate as USER with PASS. PASS will be prompted if missing]' \
+'--session=[Create, or reuse and update a session]' \
+'(--session)--session-read-only=[Create or read a session without updating it form the request/response exchange]' \
+'-A+[Specify the auth mechanism]: :(basic bearer digest)' \
+'--auth-type=[Specify the auth mechanism]: :(basic bearer digest)' \
+'-a+[Authenticate as USER with PASS or with TOKEN]' \
+'--auth=[Authenticate as USER with PASS or with TOKEN]' \
 '--bearer=[Authenticate with a bearer token]' \
 '--max-redirects=[Number of redirects to follow, only respected if `follow` is set]' \
 '--timeout=[Connection timeout of the request]' \
@@ -33,7 +39,9 @@ _xh() {
 '--verify=[If "no", skip SSL verification. If a file path, use it as a CA bundle]' \
 '--cert=[Use a client side certificate for SSL]' \
 '--cert-key=[A private key file to use with --cert]' \
+'--ssl=[Force a particular TLS version]: :(auto ssl2.3 tls1 tls1.1 tls1.2 tls1.3)' \
 '--default-scheme=[The default scheme to use if not specified in the URL]' \
+'--http-version=[HTTP version to use]: :(1 1.0 1.1 2)' \
 '-j[(default) Serialize data items from the command line as a JSON object]' \
 '--json[(default) Serialize data items from the command line as a JSON object]' \
 '-f[Serialize data items from the command line as form fields]' \
@@ -46,6 +54,7 @@ _xh() {
 '--body[Print only the response body, Shortcut for --print=b]' \
 '-v[Print the whole request as well as the response]' \
 '--verbose[Print the whole request as well as the response]' \
+'--all[Show any intermediary requests/responses while following redirects with --follow]' \
 '-q[Do not print to stdout or stderr]' \
 '--quiet[Do not print to stdout or stderr]' \
 '-S[Always stream the response body]' \
@@ -56,14 +65,16 @@ _xh() {
 '--continue[Resume an interrupted download. Requires --download and --output]' \
 '--ignore-netrc[Do not use credentials from .netrc]' \
 '--offline[Construct HTTP requests without sending them anywhere]' \
-'--check-status[Exit with an error status code if the server replies with an error]' \
+'--check-status[(default) Exit with an error status code if the server replies with an error]' \
 '-F[Do follow redirects]' \
 '--follow[Do follow redirects]' \
+'--native-tls[Use the system TLS library instead of rustls (if enabled at compile time)]' \
 '--https[Make HTTPS requests if not specified in the URL]' \
 '-I[Do not attempt to read stdin]' \
 '--ignore-stdin[Do not attempt to read stdin]' \
 '--curl[Print a translation to a `curl` command]' \
 '--curl-long[Use the long versions of curl'\''s flags]' \
+'--no-all[]' \
 '--no-auth[]' \
 '--no-auth-type[]' \
 '--no-bearer[]' \
@@ -79,18 +90,26 @@ _xh() {
 '--no-follow[]' \
 '--no-form[]' \
 '--no-headers[]' \
+'--no-history-print[]' \
+'--no-http-version[]' \
 '--no-https[]' \
 '--no-ignore-netrc[]' \
 '--no-ignore-stdin[]' \
 '--no-json[]' \
 '--no-max-redirects[]' \
 '--no-multipart[]' \
+'--no-native-tls[]' \
 '--no-offline[]' \
 '--no-output[]' \
 '--no-pretty[]' \
 '--no-print[]' \
 '--no-proxy[]' \
 '--no-quiet[]' \
+'--no-response-charset[]' \
+'--no-response-mime[]' \
+'--no-session[]' \
+'--no-session-read-only[]' \
+'--no-ssl[]' \
 '--no-stream[]' \
 '--no-style[]' \
 '--no-timeout[]' \
